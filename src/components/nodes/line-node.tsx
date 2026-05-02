@@ -126,8 +126,7 @@ function LineNodeComponent({
     <div className="relative h-full w-full select-none">
       <NodeResizer
         isVisible={selected}
-        minWidth={40}
-        minHeight={20}
+
         lineClassName="!border-ring/40"
         handleClassName="!h-2 !w-2 !rounded-sm !border !border-ring !bg-background"
       />

@@ -35,8 +35,7 @@ function ImageNodeComponent({ data, selected }: NodeProps<ImageNode>) {
     >
       <NodeResizer
         isVisible={selected}
-        minWidth={40}
-        minHeight={40}
+
         keepAspectRatio
         lineClassName="!border-ring/40"
         handleClassName="!h-2 !w-2 !rounded-sm !border !border-ring !bg-background"

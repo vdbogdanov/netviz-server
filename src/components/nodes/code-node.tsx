@@ -27,7 +27,7 @@ function CodeNodeComponent({ data, selected }: NodeProps<CodeNode>) {
   return (
     <div
       className={cn(
-        "code-card relative min-w-[280px] max-w-[640px] overflow-hidden rounded-lg border border-border bg-card shadow-sm",
+        "code-card relative max-w-[640px] overflow-hidden rounded-lg border border-border bg-card shadow-sm",
         selected && "ring-2 ring-ring"
       )}
       style={style}

@@ -101,8 +101,7 @@ function InfraNodeComponent({ data, selected }: NodeProps<InfraNode>) {
     >
       <NodeResizer
         isVisible={selected}
-        minWidth={isCard ? 140 : 180}
-        minHeight={isCard ? 130 : 64}
+
         lineClassName="!border-ring/40"
         handleClassName="!h-2 !w-2 !rounded-sm !border !border-ring !bg-background"
       />

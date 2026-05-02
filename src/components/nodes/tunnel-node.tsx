@@ -29,8 +29,7 @@ function TunnelNodeComponent({ data, selected }: NodeProps<TunnelNode>) {
     >
       <NodeResizer
         isVisible={selected}
-        minWidth={160}
-        minHeight={60}
+
         lineClassName="!border-ring/40 !rounded-full"
         handleClassName="!h-2 !w-2 !rounded-sm !border !border-ring !bg-background"
       />

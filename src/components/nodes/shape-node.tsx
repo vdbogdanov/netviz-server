@@ -47,8 +47,7 @@ function ShapeNodeComponent({ data, selected }: NodeProps<ShapeNode>) {
     >
       <NodeResizer
         isVisible={selected}
-        minWidth={120}
-        minHeight={120}
+
         keepAspectRatio={isCircle}
         lineClassName="!border-ring/40"
         handleClassName="!h-2 !w-2 !rounded-sm !border !border-ring !bg-background"
