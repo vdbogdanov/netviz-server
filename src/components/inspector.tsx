@@ -250,10 +250,10 @@ function ImageEditor({ node }: { node: ImageNode }) {
   );
 }
 
-function AccentPicker({ value, onChange }: { value: Accent; onChange: (a: Accent) => void }) {
+function AccentPicker({ value, onChange, label = "Icon color" }: { value: Accent; onChange: (a: Accent) => void; label?: string }) {
   return (
     <div className="grid gap-2">
-      <Label>Icon color</Label>
+      <Label>{label}</Label>
       <div className="flex flex-wrap gap-1.5">
         {ACCENTS.map((a) => {
           const c = ACCENT_CLASSES[a];
@@ -874,7 +874,26 @@ function TextEditor({ node }: { node: TextNode }) {
           className="w-full accent-primary"
         />
       </div>
-      <AccentPicker value={node.data.accent ?? "slate"} onChange={(a) => updateNodeData(node.id, { accent: a })} />
+      <AccentPicker value={node.data.accent ?? "slate"} onChange={(a) => updateNodeData(node.id, { accent: a })} label="Color" />
+      <div className="flex items-center justify-between">
+        <Label>Background</Label>
+        <button
+          type="button"
+          onClick={() =>
+            updateNodeData(node.id, {
+              bgColor: node.data.bgColor === "transparent" ? undefined : "transparent",
+            })
+          }
+          className={cn(
+            "rounded-md border border-border px-2 py-1 text-xs transition-colors",
+            node.data.bgColor !== "transparent"
+              ? "bg-accent text-accent-foreground ring-1 ring-ring"
+              : "text-muted-foreground hover:text-foreground"
+          )}
+        >
+          {node.data.bgColor !== "transparent" ? "On" : "Off"}
+        </button>
+      </div>
       <RadiusSlider
         id={`${node.id}-radius`}
         value={node.data.borderRadius}
