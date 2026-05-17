@@ -68,21 +68,14 @@ npm run preview
 
 ## Deploy
 
-### Option 1: Docker
+### Option 1: Any static host
+1. Run `bun run build`
+2. The `dist/` folder is a plain static site. Upload it to any static host, that's it.
 
-The repo ships with a `Dockerfile` and an `nginx.conf`. Build the app first so `dist/` exists, then build and run the image.
-
-```bash
-bun run build
-docker build -t netviz .
-docker run --rm -p 8080:8080 netviz
-```
-
-Open http://localhost:8080.
-
-### Option 2: Any static host
-
-The `dist/` folder is a plain static site. Upload it to any static host and deploy it.
+### Option 2: Coolify
+1. Add a new resource in Coolify → "Docker Compose Empty."
+2. Paste the contents of the `coolify.yaml` from the repo into the input field.
+3. Click "Deploy!"
 
 ## License
 
