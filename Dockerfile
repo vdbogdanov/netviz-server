@@ -10,17 +10,10 @@ COPY . .
 
 RUN bun run build
 
-FROM nginxinc/nginx-unprivileged:alpine-slim
+FROM ghcr.io/shadowarcanist/rustinx:v1.0
 
-COPY nginx.conf /etc/nginx/conf.d/app.conf
+COPY --from=build /app/dist /static
 
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY rustinx.toml /etc/rustinx/rustinx.toml
 
-USER nginx
-
-EXPOSE 8080
-
-HEALTHCHECK --interval=60s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget -q -O /dev/null http://127.0.0.1:8080 || exit 1
-
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 9090

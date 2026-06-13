@@ -3,4 +3,4 @@ services:
     image: 'ghcr.io/shadowarcanist/netviz:latest'
     pull_policy: always
     environment:
-      - SERVICE_URL_NETVIZ_8080
+      - SERVICE_URL_NETVIZ_9090
